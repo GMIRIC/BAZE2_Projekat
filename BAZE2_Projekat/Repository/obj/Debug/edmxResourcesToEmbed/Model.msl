@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="WinnarySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Winnary)">
+        <MappingFragment StoreEntitySet="WinnarySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CitySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.City)">
+        <MappingFragment StoreEntitySet="CitySet">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VineSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Vine)">
+        <MappingFragment StoreEntitySet="VineSet">
+          <ScalarProperty Name="VineId" ColumnName="VineId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="WinnaryId" ColumnName="WinnaryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RedVine)">
+        <MappingFragment StoreEntitySet="VineSet_RedVine">
+          <ScalarProperty Name="VineId" ColumnName="VineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.WhiteVine)">
+        <MappingFragment StoreEntitySet="VineSet_WhiteVine">
+          <ScalarProperty Name="VineId" ColumnName="VineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeesSet1">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Employees)">
+        <MappingFragment StoreEntitySet="EmployeesSet1">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="WinnaryId" ColumnName="WinnaryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Packer)">
+        <MappingFragment StoreEntitySet="EmployeesSet1_Packer">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Seller)">
+        <MappingFragment StoreEntitySet="EmployeesSet1_Seller">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorehouseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Storehouse)">
+        <MappingFragment StoreEntitySet="StorehouseSet">
+          <ScalarProperty Name="StorehouseId" ColumnName="StorehouseId" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransportSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Transport)">
+        <MappingFragment StoreEntitySet="TransportSet">
+          <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+          <ScalarProperty Name="RedVineVineId" ColumnName="RedVineVineId" />
+          <ScalarProperty Name="StorehouseStorehouseId" ColumnName="StorehouseStorehouseId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Package)">
+        <MappingFragment StoreEntitySet="PackageSet">
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="PackerEmployeesId" ColumnName="PackerEmployeesId" />
+          <ScalarProperty Name="TransportTransportId" ColumnName="TransportTransportId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SellSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Sell)">
+        <MappingFragment StoreEntitySet="SellSet">
+          <ScalarProperty Name="SellId" ColumnName="SellId" />
+          <ScalarProperty Name="PackagePackageId" ColumnName="PackagePackageId" />
+          <ScalarProperty Name="SellerEmployeesId" ColumnName="SellerEmployeesId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Customer)">
+        <MappingFragment StoreEntitySet="CustomerSet">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="PurchasedAmount" ColumnName="PurchasedAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Buy)">
+        <MappingFragment StoreEntitySet="BuySet">
+          <ScalarProperty Name="BuyId" ColumnName="BuyId" />
+          <ScalarProperty Name="PackagePackageId" ColumnName="PackagePackageId" />
+          <ScalarProperty Name="SellSellId" ColumnName="SellSellId" />
+          <ScalarProperty Name="CustomerCustomerId" ColumnName="CustomerCustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasterSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Taster)">
+        <MappingFragment StoreEntitySet="TasterSet">
+          <ScalarProperty Name="TasterId" ColumnName="TasterId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TastingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Tasting)">
+        <MappingFragment StoreEntitySet="TastingSet">
+          <ScalarProperty Name="TastingId" ColumnName="TastingId" />
+          <ScalarProperty Name="TasterTasterId" ColumnName="TasterTasterId" />
+          <ScalarProperty Name="WhiteVineVineId" ColumnName="WhiteVineVineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChampagneSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Champagne)">
+        <MappingFragment StoreEntitySet="ChampagneSet">
+          <ScalarProperty Name="ChampagneId" ColumnName="ChampagneId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TastingChampagneSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TastingChampagne)">
+        <MappingFragment StoreEntitySet="TastingChampagneSet">
+          <ScalarProperty Name="TastingChampagneId" ColumnName="TastingChampagneId" />
+          <ScalarProperty Name="ChampagneChampagneId" ColumnName="ChampagneChampagneId" />
+          <ScalarProperty Name="TastingTastingId" ColumnName="TastingTastingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HierarchySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Hierarchy)">
+        <MappingFragment StoreEntitySet="HierarchySet">
+          <ScalarProperty Name="HierarchyId" ColumnName="HierarchyId" />
+          <ScalarProperty Name="EmployeesEmployeesId" ColumnName="EmployeesEmployeesId" />
+          <ScalarProperty Name="EmployeesEmployeesId1" ColumnName="EmployeesEmployeesId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

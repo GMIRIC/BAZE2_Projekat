@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="UserInterface.Views.TastingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="960">
+    <Grid  Background="LemonChiffon">
+        <Label Content="Degustator" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="15,27,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableTasterList}" DisplayMemberPath="FirstName" SelectedItem="{Binding ChosenTaster}" HorizontalAlignment="Left" Margin="143,34,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Bela vina" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="15,64,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableWhiteWineList}" DisplayMemberPath="Name" SelectedItem="{Binding ChosenWhiteWine}" HorizontalAlignment="Left" Margin="143,68,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+        <Button Command="{Binding AddTastingCommand}" Content="Dodaj" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,21,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding RemoveTastingCommand}" Content="Obrisi" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,68,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding EditTastingCommand}" Content="Izmeni" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="558,48,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+
+        <DataGrid HorizontalAlignment="Left" Height="361" Margin="10,131,0,0" VerticalAlignment="Top" Width="940" AutoGenerateColumns="False" Name="dataGrid"
+          IsReadOnly="True" SelectionMode="Single"
+          ItemsSource="{Binding ObservableTastingList}" 
+          SelectedItem="{Binding SelectedTasting}"  AlternatingRowBackground="Goldenrod" AlternationCount="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding TastingId}"/>
+                <DataGridTextColumn Header="Degustator" Width="*" Binding="{Binding Taster.FirstName}"/>
+                <DataGridTextColumn Header="Vino" Width="*" Binding="{Binding WhiteVine.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Novi degustator" HorizontalAlignment="Left" Margin="708,34,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableTasterList}" DisplayMemberPath="FirstName" SelectedItem="{Binding NewChosenTaster}" HorizontalAlignment="Left" Margin="815,34,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Novo belo vino" HorizontalAlignment="Left" Margin="708,65,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableWhiteWineList}" DisplayMemberPath="Name" SelectedItem="{Binding NewChosenWhiteWine}" HorizontalAlignment="Left" Margin="815,68,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="UserInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface"
+        xmlns:viewmodels="clr-namespace:UserInterface.ViewModels"
+        xmlns:views="clr-namespace:UserInterface.Views"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:WinnaryViewModel}">
+            <views:WinnaryView></views:WinnaryView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CityViewModel}">
+            <views:CityView></views:CityView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:WineViewModel}">
+            <views:WineView></views:WineView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
+            <views:EmployeesView></views:EmployeesView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CustomerViewModel}">
+            <views:CustomerView></views:CustomerView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:StorehouseViewModel}">
+            <views:StorehouseView></views:StorehouseView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:TasterViewModel}">
+            <views:TasterView></views:TasterView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:TastingViewModel}">
+            <views:TastingView></views:TastingView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ChampagneViewModel}">
+            <views:ChampagneView></views:ChampagneView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:TastingChampagneViewModel}">
+            <views:TastingChampagneView></views:TastingChampagneView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:TransportViewModel}">
+            <views:TransportView></views:TransportView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PackageViewModel}">
+            <views:PackageView></views:PackageView>
+        </DataTemplate>
+
+
+    </Window.Resources>
+
+    <Grid Background="DarkRed">
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="vinarije" Content="Vinarije" FontWeight="Bold" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="grad" Content="Gradovi" FontWeight="Bold" HorizontalAlignment="Left" Margin="92,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="vina" Content="Vina" FontWeight="Bold" HorizontalAlignment="Left" Margin="172,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="zaposleni" Content="Zaposleni" FontWeight="Bold" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="kupci" Content="Kupci" FontWeight="Bold" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="skladista" Content="Skladista"  FontWeight="Bold" HorizontalAlignment="Left" Margin="412,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="degustatori" Content="Degustatori"  FontWeight="Bold" HorizontalAlignment="Left" Margin="492,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="sampanjci" Content="Sampanjci"  FontWeight="Bold" HorizontalAlignment="Left" Margin="572,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="degustacije" Content="Degustacije"  FontWeight="Bold" HorizontalAlignment="Left" Margin="652,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="pravljenje" Content="Pravljenje"  FontWeight="Bold" HorizontalAlignment="Left" Margin="732,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="transport" Content="Transport"  FontWeight="Bold" HorizontalAlignment="Left" Margin="812,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+        <Button Command="{Binding ViewUpdateCommand}" CommandParameter="paketi" Content="Paketi"  FontWeight="Bold" HorizontalAlignment="Left" Margin="892,10,0,0" VerticalAlignment="Top" Width="75" Background="LemonChiffon" Height="25"/>
+
+        <ContentControl Content="{Binding CurrentViewModel}" HorizontalAlignment="Left" Width="970" Height="510" VerticalAlignment="Top" Margin="12,50,0,0"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="UserInterface.Views.EmployeesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="960">
+    <Grid x:Name="MyWinnaryGrid" Background="LemonChiffon">
+        <Label Content="Ime" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="138,18,0,0" TextWrapping="Wrap" Text="{Binding EmployeeFirstName}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Prezime" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="138,48,0,0" TextWrapping="Wrap" Text="{Binding EmployeeLastName}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Uloga" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableRoleList}" SelectedItem="{Binding ChosenEmployeeRole}" HorizontalAlignment="Left" Margin="138,84,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Plata" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,1.745"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="138,117,0,0" TextWrapping="Wrap" Text="{Binding EmployeeSalary}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Vinarija" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,1.745"/>
+        <ComboBox ItemsSource="{Binding ObservableWinnaryList}" DisplayMemberPath="Name" SelectedItem="{Binding ChosenWinnary}" HorizontalAlignment="Left" Margin="138,156,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.513,2.652"/>
+
+
+        <Button Command="{Binding AddEmployeeCommand}" Content="Dodaj" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,21,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding RemoveEmployeeCommand}" Content="Obrisi" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,68,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding EditEmployeeCommand}" Content="Izmeni" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="558,48,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+
+        <DataGrid HorizontalAlignment="Left" Height="232" Margin="10,260,0,0" VerticalAlignment="Top" Width="940" AutoGenerateColumns="False" Name="dataGrid"
+          IsReadOnly="True" SelectionMode="Single"
+          ItemsSource="{Binding ObservableEmployeesList}" 
+          SelectedItem="{Binding SelectedEmployee}"  AlternatingRowBackground="Goldenrod" AlternationCount="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding EmployeesId}"/>
+                <DataGridTextColumn Header="Ime" Width="*" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Prezime" Width="*" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Plata" Width="*" Binding="{Binding Salary}"/>
+                <DataGridTextColumn Header="Vinarija" Width="*" Binding="{Binding Winnary.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="820,18,0,0" TextWrapping="Wrap" Text="{Binding NewEmployeeFirstName}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="820,50,0,0" TextWrapping="Wrap" Text="{Binding NewEmployeeLastName}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="820,83,0,0" TextWrapping="Wrap" Text="{Binding NewEmployeeSalary}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Novo ime" HorizontalAlignment="Left" Margin="695,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Novo prezime" HorizontalAlignment="Left" Margin="695,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nova plata" HorizontalAlignment="Left" Margin="695,81,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nova vinarija" HorizontalAlignment="Left" Margin="695,112,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableWinnaryList}" DisplayMemberPath="Name" SelectedItem="{Binding NewChosenWinnary}" HorizontalAlignment="Left" Margin="820,114,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button Command="{Binding ShowPackersCommand}" Content="Pakeri" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="436,203,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command="{Binding ShowSellersCommand}" Content="Prodavci" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="558,203,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command="{Binding ShowAllCommand}" Content="Svi" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,203,0,0" VerticalAlignment="Top" Width="100"/>
+
+    </Grid>
+</UserControl>

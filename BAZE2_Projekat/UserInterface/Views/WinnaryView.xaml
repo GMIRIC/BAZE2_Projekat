@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="UserInterface.Views.WinnaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="960">
+    <Grid x:Name="MyWinnaryGrid" Background="LemonChiffon">
+        <Label Content="Naziv" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="138,18,0,0" TextWrapping="Wrap" Text="{Binding WinnaryName}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Adresa" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="138,48,0,0" TextWrapping="Wrap" Text="{Binding WinnaryAddress}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Grad" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableCityList}" DisplayMemberPath="Name" SelectedItem="{Binding ChosenCity}" HorizontalAlignment="Left" Margin="138,84,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button Command="{Binding AddWinnaryCommand}" Content="Dodaj" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,21,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding RemoveWinnaryCommand}" Content="Obrisi" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,68,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding EditWinnaryCommand}" Content="Izmeni" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="558,48,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+
+        <DataGrid HorizontalAlignment="Left" Height="360" Margin="10,132,0,0" VerticalAlignment="Top" Width="940" AutoGenerateColumns="False" Name="dataGrid"
+          IsReadOnly="True" SelectionMode="Single"
+          ItemsSource="{Binding ObservableWinnaryList}" 
+          SelectedItem="{Binding SelectedWinnary}"  AlternatingRowBackground="Goldenrod" AlternationCount="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Adresa" Width="*" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Grad" Width="*" Binding="{Binding City.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <TextBox x:Name="textBoxCityName" HorizontalAlignment="Left" Height="23" Margin="820,18,0,0" TextWrapping="Wrap" Text="{Binding NewWinnaryName}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxCityRegion" HorizontalAlignment="Left" Height="23" Margin="820,50,0,0" TextWrapping="Wrap" Text="{Binding NewWinnaryAddress}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Novi naziv" HorizontalAlignment="Left" Margin="695,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nova adresa" HorizontalAlignment="Left" Margin="695,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Novi grad" HorizontalAlignment="Left" Margin="695,84,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableCityList}" DisplayMemberPath="Name" SelectedItem="{Binding NewChosenCity}" HorizontalAlignment="Left" Margin="820,84,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</UserControl>

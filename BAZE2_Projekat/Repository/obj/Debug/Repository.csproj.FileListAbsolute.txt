@@ -1,0 +1,12 @@
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\Repository.dll.config
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\Repository.dll
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\Repository.pdb
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\obj\Debug\Repository.dll
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\obj\Debug\Repository.pdb
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\EntityFramework.dll
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\EntityFramework.xml
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
+D:\VISUAL STUDIO\BAZE2_Projekat\Repository\obj\Debug\Repository.csproj.CopyComplete

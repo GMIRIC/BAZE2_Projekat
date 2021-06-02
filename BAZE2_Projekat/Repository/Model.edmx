@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="WinnarySet" EntityType="Model.Store.WinnarySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CitySet" EntityType="Model.Store.CitySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VineSet" EntityType="Model.Store.VineSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeesSet1" EntityType="Model.Store.EmployeesSet1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StorehouseSet" EntityType="Model.Store.StorehouseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TransportSet" EntityType="Model.Store.TransportSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PackageSet" EntityType="Model.Store.PackageSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SellSet" EntityType="Model.Store.SellSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerSet" EntityType="Model.Store.CustomerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BuySet" EntityType="Model.Store.BuySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TasterSet" EntityType="Model.Store.TasterSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TastingSet" EntityType="Model.Store.TastingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChampagneSet" EntityType="Model.Store.ChampagneSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TastingChampagneSet" EntityType="Model.Store.TastingChampagneSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HierarchySet" EntityType="Model.Store.HierarchySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VineSet_RedVine" EntityType="Model.Store.VineSet_RedVine" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeesSet1_Packer" EntityType="Model.Store.EmployeesSet1_Packer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeesSet1_Seller" EntityType="Model.Store.EmployeesSet1_Seller" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VineSet_WhiteVine" EntityType="Model.Store.VineSet_WhiteVine" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="WinnaryVine" Association="Model.Store.WinnaryVine">
+      <End Role="Winnary" EntitySet="WinnarySet" />
+      <End Role="Vine" EntitySet="VineSet" />
+    </AssociationSet>
+    <AssociationSet Name="WinnaryEmployees" Association="Model.Store.WinnaryEmployees">
+      <End Role="Winnary" EntitySet="WinnarySet" />
+      <End Role="Employees" EntitySet="EmployeesSet1" />
+    </AssociationSet>
+    <AssociationSet Name="RedVineTransport" Association="Model.Store.RedVineTransport">
+      <End Role="RedVine" EntitySet="VineSet_RedVine" />
+      <End Role="Transport" EntitySet="TransportSet" />
+    </AssociationSet>
+    <AssociationSet Name="StorehouseTransport" Association="Model.Store.StorehouseTransport">
+      <End Role="Storehouse" EntitySet="StorehouseSet" />
+      <End Role="Transport" EntitySet="TransportSet" />
+    </AssociationSet>
+    <AssociationSet Name="PackerPackage" Association="Model.Store.PackerPackage">
+      <End Role="Packer" EntitySet="EmployeesSet1_Packer" />
+      <End Role="Package" EntitySet="PackageSet" />
+    </AssociationSet>
+    <AssociationSet Name="TransportPackage" Association="Model.Store.TransportPackage">
+      <End Role="Transport" EntitySet="TransportSet" />
+      <End Role="Package" EntitySet="PackageSet" />
+    </AssociationSet>
+    <AssociationSet Name="PackageSell" Association="Model.Store.PackageSell">
+      <End Role="Package" EntitySet="PackageSet" />
+      <End Role="Sell" EntitySet="SellSet" />
+    </AssociationSet>
+    <AssociationSet Name="SellerSell" Association="Model.Store.SellerSell">
+      <End Role="Seller" EntitySet="EmployeesSet1_Seller" />
+      <End Role="Sell" EntitySet="SellSet" />
+    </AssociationSet>
+    <AssociationSet Name="SellBuy" Association="Model.Store.SellBuy">
+      <End Role="Sell" EntitySet="SellSet" />
+      <End Role="Buy" EntitySet="BuySet" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerBuy" Association="Model.Store.CustomerBuy">
+      <End Role="Customer" EntitySet="CustomerSet" />
+      <End Role="Buy" EntitySet="BuySet" />
+    </AssociationSet>
+    <AssociationSet Name="TasterTasting" Association="Model.Store.TasterTasting">
+      <End Role="Taster" EntitySet="TasterSet" />
+      <End Role="Tasting" EntitySet="TastingSet" />
+    </AssociationSet>
+    <AssociationSet Name="WhiteVineTasting" Association="Model.Store.WhiteVineTasting">
+      <End Role="WhiteVine" EntitySet="VineSet_WhiteVine" />
+      <End Role="Tasting" EntitySet="TastingSet" />
+    </AssociationSet>
+    <AssociationSet Name="ChampagneTastingChampagne" Association="Model.Store.ChampagneTastingChampagne">
+      <End Role="Champagne" EntitySet="ChampagneSet" />
+      <End Role="TastingChampagne" EntitySet="TastingChampagneSet" />
+    </AssociationSet>
+    <AssociationSet Name="TastingTastingChampagne" Association="Model.Store.TastingTastingChampagne">
+      <End Role="Tasting" EntitySet="TastingSet" />
+      <End Role="TastingChampagne" EntitySet="TastingChampagneSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeesHierarchy" Association="Model.Store.EmployeesHierarchy">
+      <End Role="Employees" EntitySet="EmployeesSet1" />
+      <End Role="Hierarchy" EntitySet="HierarchySet" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeesHierarchy1" Association="Model.Store.EmployeesHierarchy1">
+      <End Role="Employees" EntitySet="EmployeesSet1" />
+      <End Role="Hierarchy" EntitySet="HierarchySet" />
+    </AssociationSet>
+    <AssociationSet Name="CityWinnary" Association="Model.Store.CityWinnary">
+      <End Role="City" EntitySet="CitySet" />
+      <End Role="Winnary" EntitySet="WinnarySet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RedVine_inherits_Vine" Association="Model.Store.FK_RedVine_inherits_Vine">
+      <End Role="Vine" EntitySet="VineSet" />
+      <End Role="RedVine" EntitySet="VineSet_RedVine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Packer_inherits_Employees" Association="Model.Store.FK_Packer_inherits_Employees">
+      <End Role="Employees" EntitySet="EmployeesSet1" />
+      <End Role="Packer" EntitySet="EmployeesSet1_Packer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seller_inherits_Employees" Association="Model.Store.FK_Seller_inherits_Employees">
+      <End Role="Employees" EntitySet="EmployeesSet1" />
+      <End Role="Seller" EntitySet="EmployeesSet1_Seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WhiteVine_inherits_Vine" Association="Model.Store.FK_WhiteVine_inherits_Vine">
+      <End Role="Vine" EntitySet="VineSet" />
+      <End Role="WhiteVine" EntitySet="VineSet_WhiteVine" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="WinnarySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CitySet">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="Zipcode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Region" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VineSet">
+    <Key>
+      <PropertyRef Name="VineId" />
+    </Key>
+    <Property Name="VineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductionDate" Type="datetime" Nullable="false" />
+    <Property Name="WinnaryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeesSet1">
+    <Key>
+      <PropertyRef Name="EmployeesId" />
+    </Key>
+    <Property Name="EmployeesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Salary" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WinnaryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StorehouseSet">
+    <Key>
+      <PropertyRef Name="StorehouseId" />
+    </Key>
+    <Property Name="StorehouseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Capacity" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransportSet">
+    <Key>
+      <PropertyRef Name="TransportId" />
+    </Key>
+    <Property Name="TransportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RedVineVineId" Type="int" Nullable="false" />
+    <Property Name="StorehouseStorehouseId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PackageSet">
+    <Key>
+      <PropertyRef Name="PackageId" />
+    </Key>
+    <Property Name="PackageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackerEmployeesId" Type="int" Nullable="false" />
+    <Property Name="TransportTransportId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SellSet">
+    <Key>
+      <PropertyRef Name="SellId" />
+    </Key>
+    <Property Name="SellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackagePackageId" Type="int" Nullable="false" />
+    <Property Name="SellerEmployeesId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerSet">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerPhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PurchasedAmount" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuySet">
+    <Key>
+      <PropertyRef Name="BuyId" />
+    </Key>
+    <Property Name="BuyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackagePackageId" Type="int" Nullable="false" />
+    <Property Name="SellSellId" Type="int" Nullable="false" />
+    <Property Name="CustomerCustomerId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TasterSet">
+    <Key>
+      <PropertyRef Name="TasterId" />
+    </Key>
+    <Property Name="TasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TastingSet">
+    <Key>
+      <PropertyRef Name="TastingId" />
+    </Key>
+    <Property Name="TastingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TasterTasterId" Type="int" Nullable="false" />
+    <Property Name="WhiteVineVineId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChampagneSet">
+    <Key>
+      <PropertyRef Name="ChampagneId" />
+    </Key>
+    <Property Name="ChampagneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductionDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TastingChampagneSet">
+    <Key>
+      <PropertyRef Name="TastingChampagneId" />
+    </Key>
+    <Property Name="TastingChampagneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChampagneChampagneId" Type="int" Nullable="false" />
+    <Property Name="TastingTastingId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HierarchySet">
+    <Key>
+      <PropertyRef Name="HierarchyId" />
+    </Key>
+    <Property Name="HierarchyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeesEmployeesId" Type="int" Nullable="false" />
+    <Property Name="EmployeesEmployeesId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VineSet_RedVine">
+    <Key>
+      <PropertyRef Name="VineId" />
+    </Key>
+    <Property Name="VineId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeesSet1_Packer">
+    <Key>
+      <PropertyRef Name="EmployeesId" />
+    </Key>
+    <Property Name="EmployeesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeesSet1_Seller">
+    <Key>
+      <PropertyRef Name="EmployeesId" />
+    </Key>
+    <Property Name="EmployeesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VineSet_WhiteVine">
+    <Key>
+      <PropertyRef Name="VineId" />
+    </Key>
+    <Property Name="VineId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="WinnaryVine">
+    <End Role="Winnary" Type="Model.Store.WinnarySet" Multiplicity="1" />
+    <End Role="Vine" Type="Model.Store.VineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Winnary">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vine">
+        <PropertyRef Name="WinnaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WinnaryEmployees">
+    <End Role="Winnary" Type="Model.Store.WinnarySet" Multiplicity="1" />
+    <End Role="Employees" Type="Model.Store.EmployeesSet1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Winnary">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="WinnaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RedVineTransport">
+    <End Role="RedVine" Type="Model.Store.VineSet_RedVine" Multiplicity="1" />
+    <End Role="Transport" Type="Model.Store.TransportSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RedVine">
+        <PropertyRef Name="VineId" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="RedVineVineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StorehouseTransport">
+    <End Role="Storehouse" Type="Model.Store.StorehouseSet" Multiplicity="1" />
+    <End Role="Transport" Type="Model.Store.TransportSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Storehouse">
+        <PropertyRef Name="StorehouseId" />
+      </Principal>
+      <Dependent Role="Transport">
+        <PropertyRef Name="StorehouseStorehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PackerPackage">
+    <End Role="Packer" Type="Model.Store.EmployeesSet1_Packer" Multiplicity="1" />
+    <End Role="Package" Type="Model.Store.PackageSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Packer">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="PackerEmployeesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TransportPackage">
+    <End Role="Transport" Type="Model.Store.TransportSet" Multiplicity="1" />
+    <End Role="Package" Type="Model.Store.PackageSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transport">
+        <PropertyRef Name="TransportId" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="TransportTransportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PackageSell">
+    <End Role="Package" Type="Model.Store.PackageSet" Multiplicity="1" />
+    <End Role="Sell" Type="Model.Store.SellSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="PackageId" />
+      </Principal>
+      <Dependent Role="Sell">
+        <PropertyRef Name="PackagePackageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SellerSell">
+    <End Role="Seller" Type="Model.Store.EmployeesSet1_Seller" Multiplicity="1" />
+    <End Role="Sell" Type="Model.Store.SellSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Sell">
+        <PropertyRef Name="SellerEmployeesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SellBuy">
+    <End Role="Sell" Type="Model.Store.SellSet" Multiplicity="1" />
+    <End Role="Buy" Type="Model.Store.BuySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sell">
+        <PropertyRef Name="SellId" />
+      </Principal>
+      <Dependent Role="Buy">
+        <PropertyRef Name="SellSellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerBuy">
+    <End Role="Customer" Type="Model.Store.CustomerSet" Multiplicity="1" />
+    <End Role="Buy" Type="Model.Store.BuySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Buy">
+        <PropertyRef Name="CustomerCustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TasterTasting">
+    <End Role="Taster" Type="Model.Store.TasterSet" Multiplicity="1" />
+    <End Role="Tasting" Type="Model.Store.TastingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Taster">
+        <PropertyRef Name="TasterId" />
+      </Principal>
+      <Dependent Role="Tasting">
+        <PropertyRef Name="TasterTasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WhiteVineTasting">
+    <End Role="WhiteVine" Type="Model.Store.VineSet_WhiteVine" Multiplicity="1" />
+    <End Role="Tasting" Type="Model.Store.TastingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WhiteVine">
+        <PropertyRef Name="VineId" />
+      </Principal>
+      <Dependent Role="Tasting">
+        <PropertyRef Name="WhiteVineVineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChampagneTastingChampagne">
+    <End Role="Champagne" Type="Model.Store.ChampagneSet" Multiplicity="1" />
+    <End Role="TastingChampagne" Type="Model.Store.TastingChampagneSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Champagne">
+        <PropertyRef Name="ChampagneId" />
+      </Principal>
+      <Dependent Role="TastingChampagne">
+        <PropertyRef Name="ChampagneChampagneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TastingTastingChampagne">
+    <End Role="Tasting" Type="Model.Store.TastingSet" Multiplicity="1" />
+    <End Role="TastingChampagne" Type="Model.Store.TastingChampagneSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasting">
+        <PropertyRef Name="TastingId" />
+      </Principal>
+      <Dependent Role="TastingChampagne">
+        <PropertyRef Name="TastingTastingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeesHierarchy">
+    <End Role="Employees" Type="Model.Store.EmployeesSet1" Multiplicity="1" />
+    <End Role="Hierarchy" Type="Model.Store.HierarchySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Hierarchy">
+        <PropertyRef Name="EmployeesEmployeesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeesHierarchy1">
+    <End Role="Employees" Type="Model.Store.EmployeesSet1" Multiplicity="1" />
+    <End Role="Hierarchy" Type="Model.Store.HierarchySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Hierarchy">
+        <PropertyRef Name="EmployeesEmployeesId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityWinnary">
+    <End Role="City" Type="Model.Store.CitySet" Multiplicity="1" />
+    <End Role="Winnary" Type="Model.Store.WinnarySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Winnary">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RedVine_inherits_Vine">
+    <End Role="Vine" Type="Model.Store.VineSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RedVine" Type="Model.Store.VineSet_RedVine" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Vine">
+        <PropertyRef Name="VineId" />
+      </Principal>
+      <Dependent Role="RedVine">
+        <PropertyRef Name="VineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Packer_inherits_Employees">
+    <End Role="Employees" Type="Model.Store.EmployeesSet1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Packer" Type="Model.Store.EmployeesSet1_Packer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Packer">
+        <PropertyRef Name="EmployeesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seller_inherits_Employees">
+    <End Role="Employees" Type="Model.Store.EmployeesSet1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Seller" Type="Model.Store.EmployeesSet1_Seller" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="EmployeesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WhiteVine_inherits_Vine">
+    <End Role="Vine" Type="Model.Store.VineSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WhiteVine" Type="Model.Store.VineSet_WhiteVine" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Vine">
+        <PropertyRef Name="VineId" />
+      </Principal>
+      <Dependent Role="WhiteVine">
+        <PropertyRef Name="VineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="WinnarySet" EntityType="Model.Winnary" />
+          <EntitySet Name="CitySet" EntityType="Model.City" />
+          <EntitySet Name="VineSet" EntityType="Model.Vine" />
+          <AssociationSet Name="WinnaryVine" Association="Model.WinnaryVine">
+            <End Role="Winnary" EntitySet="WinnarySet" />
+            <End Role="Vine" EntitySet="VineSet" />
+          </AssociationSet>
+          <EntitySet Name="EmployeesSet1" EntityType="Model.Employees" />
+          <AssociationSet Name="WinnaryEmployees" Association="Model.WinnaryEmployees">
+            <End Role="Winnary" EntitySet="WinnarySet" />
+            <End Role="Employees" EntitySet="EmployeesSet1" />
+          </AssociationSet>
+          <EntitySet Name="StorehouseSet" EntityType="Model.Storehouse" />
+          <EntitySet Name="TransportSet" EntityType="Model.Transport" />
+          <AssociationSet Name="RedVineTransport" Association="Model.RedVineTransport">
+            <End Role="RedVine" EntitySet="VineSet" />
+            <End Role="Transport" EntitySet="TransportSet" />
+          </AssociationSet>
+          <AssociationSet Name="StorehouseTransport" Association="Model.StorehouseTransport">
+            <End Role="Storehouse" EntitySet="StorehouseSet" />
+            <End Role="Transport" EntitySet="TransportSet" />
+          </AssociationSet>
+          <EntitySet Name="PackageSet" EntityType="Model.Package" />
+          <AssociationSet Name="PackerPackage" Association="Model.PackerPackage">
+            <End Role="Packer" EntitySet="EmployeesSet1" />
+            <End Role="Package" EntitySet="PackageSet" />
+          </AssociationSet>
+          <AssociationSet Name="TransportPackage" Association="Model.TransportPackage">
+            <End Role="Transport" EntitySet="TransportSet" />
+            <End Role="Package" EntitySet="PackageSet" />
+          </AssociationSet>
+          <EntitySet Name="SellSet" EntityType="Model.Sell" />
+          <AssociationSet Name="PackageSell" Association="Model.PackageSell">
+            <End Role="Package" EntitySet="PackageSet" />
+            <End Role="Sell" EntitySet="SellSet" />
+          </AssociationSet>
+          <AssociationSet Name="SellerSell" Association="Model.SellerSell">
+            <End Role="Seller" EntitySet="EmployeesSet1" />
+            <End Role="Sell" EntitySet="SellSet" />
+          </AssociationSet>
+          <EntitySet Name="CustomerSet" EntityType="Model.Customer" />
+          <EntitySet Name="BuySet" EntityType="Model.Buy" />
+          <AssociationSet Name="SellBuy" Association="Model.SellBuy">
+            <End Role="Sell" EntitySet="SellSet" />
+            <End Role="Buy" EntitySet="BuySet" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerBuy" Association="Model.CustomerBuy">
+            <End Role="Customer" EntitySet="CustomerSet" />
+            <End Role="Buy" EntitySet="BuySet" />
+          </AssociationSet>
+          <EntitySet Name="TasterSet" EntityType="Model.Taster" />
+          <EntitySet Name="TastingSet" EntityType="Model.Tasting" />
+          <AssociationSet Name="TasterTasting" Association="Model.TasterTasting">
+            <End Role="Taster" EntitySet="TasterSet" />
+            <End Role="Tasting" EntitySet="TastingSet" />
+          </AssociationSet>
+          <AssociationSet Name="WhiteVineTasting" Association="Model.WhiteVineTasting">
+            <End Role="WhiteVine" EntitySet="VineSet" />
+            <End Role="Tasting" EntitySet="TastingSet" />
+          </AssociationSet>
+          <EntitySet Name="ChampagneSet" EntityType="Model.Champagne" />
+          <EntitySet Name="TastingChampagneSet" EntityType="Model.TastingChampagne" />
+          <AssociationSet Name="ChampagneTastingChampagne" Association="Model.ChampagneTastingChampagne">
+            <End Role="Champagne" EntitySet="ChampagneSet" />
+            <End Role="TastingChampagne" EntitySet="TastingChampagneSet" />
+          </AssociationSet>
+          <AssociationSet Name="TastingTastingChampagne" Association="Model.TastingTastingChampagne">
+            <End Role="Tasting" EntitySet="TastingSet" />
+            <End Role="TastingChampagne" EntitySet="TastingChampagneSet" />
+          </AssociationSet>
+          <EntitySet Name="HierarchySet" EntityType="Model.Hierarchy" />
+          <AssociationSet Name="EmployeesHierarchy" Association="Model.EmployeesHierarchy">
+            <End Role="Employees" EntitySet="EmployeesSet1" />
+            <End Role="Hierarchy" EntitySet="HierarchySet" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeesHierarchy1" Association="Model.EmployeesHierarchy1">
+            <End Role="Employees" EntitySet="EmployeesSet1" />
+            <End Role="Hierarchy" EntitySet="HierarchySet" />
+          </AssociationSet>
+          <AssociationSet Name="CityWinnary" Association="Model.CityWinnary">
+            <End Role="City" EntitySet="CitySet" />
+            <End Role="Winnary" EntitySet="WinnarySet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Winnary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Vine" Relationship="Model.WinnaryVine" FromRole="Winnary" ToRole="Vine" />
+          <NavigationProperty Name="Employees" Relationship="Model.WinnaryEmployees" FromRole="Winnary" ToRole="Employees" />
+          <NavigationProperty Name="City" Relationship="Model.CityWinnary" FromRole="Winnary" ToRole="City" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="Zipcode" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Region" Type="String" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Winnary" Relationship="Model.CityWinnary" FromRole="City" ToRole="Winnary" />
+        </EntityType>
+        <EntityType Name="Vine">
+          <Key>
+            <PropertyRef Name="VineId" />
+          </Key>
+          <Property Name="VineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ProductionDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Winnary" Relationship="Model.WinnaryVine" FromRole="Vine" ToRole="Winnary" />
+          <Property Name="WinnaryId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="WinnaryVine">
+          <End Type="Model.Winnary" Role="Winnary" Multiplicity="1" />
+          <End Type="Model.Vine" Role="Vine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Winnary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vine">
+              <PropertyRef Name="WinnaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WhiteVine" BaseType="Model.Vine" >
+          <NavigationProperty Name="Tasting" Relationship="Model.WhiteVineTasting" FromRole="WhiteVine" ToRole="Tasting" />
+        </EntityType>
+        <EntityType Name="RedVine" BaseType="Model.Vine" >
+          <NavigationProperty Name="Transport" Relationship="Model.RedVineTransport" FromRole="RedVine" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeesId" />
+          </Key>
+          <Property Name="EmployeesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Salary" Type="String" Nullable="false" />
+          <NavigationProperty Name="Winnary" Relationship="Model.WinnaryEmployees" FromRole="Employees" ToRole="Winnary" />
+          <Property Name="WinnaryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hierarchy" Relationship="Model.EmployeesHierarchy" FromRole="Employees" ToRole="Hierarchy" />
+          <NavigationProperty Name="Hierarchy1" Relationship="Model.EmployeesHierarchy1" FromRole="Employees" ToRole="Hierarchy" />
+        </EntityType>
+        <Association Name="WinnaryEmployees">
+          <End Type="Model.Winnary" Role="Winnary" Multiplicity="1" />
+          <End Type="Model.Employees" Role="Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Winnary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="WinnaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Packer" BaseType="Model.Employees" >
+          <NavigationProperty Name="Package" Relationship="Model.PackerPackage" FromRole="Packer" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Seller" BaseType="Model.Employees" >
+          <NavigationProperty Name="Sell" Relationship="Model.SellerSell" FromRole="Seller" ToRole="Sell" />
+        </EntityType>
+        <EntityType Name="Storehouse">
+          <Key>
+            <PropertyRef Name="StorehouseId" />
+          </Key>
+          <Property Name="StorehouseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="String" Nullable="false" />
+          <NavigationProperty Name="Transport" Relationship="Model.StorehouseTransport" FromRole="Storehouse" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="TransportId" />
+          </Key>
+          <Property Name="TransportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RedVine" Relationship="Model.RedVineTransport" FromRole="Transport" ToRole="RedVine" />
+          <Property Name="RedVineVineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Storehouse" Relationship="Model.StorehouseTransport" FromRole="Transport" ToRole="Storehouse" />
+          <Property Name="StorehouseStorehouseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Package" Relationship="Model.TransportPackage" FromRole="Transport" ToRole="Package" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="RedVineTransport">
+          <End Type="Model.RedVine" Role="RedVine" Multiplicity="1" />
+          <End Type="Model.Transport" Role="Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RedVine">
+              <PropertyRef Name="VineId" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="RedVineVineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StorehouseTransport">
+          <End Type="Model.Storehouse" Role="Storehouse" Multiplicity="1" />
+          <End Type="Model.Transport" Role="Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storehouse">
+              <PropertyRef Name="StorehouseId" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="StorehouseStorehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="PackageId" />
+          </Key>
+          <Property Name="PackageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Packer" Relationship="Model.PackerPackage" FromRole="Package" ToRole="Packer" />
+          <Property Name="PackerEmployeesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Transport" Relationship="Model.TransportPackage" FromRole="Package" ToRole="Transport" />
+          <Property Name="TransportTransportId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sell" Relationship="Model.PackageSell" FromRole="Package" ToRole="Sell" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PackerPackage">
+          <End Type="Model.Packer" Role="Packer" Multiplicity="1" />
+          <End Type="Model.Package" Role="Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packer">
+              <PropertyRef Name="EmployeesId" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="PackerEmployeesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TransportPackage">
+          <End Type="Model.Transport" Role="Transport" Multiplicity="1" />
+          <End Type="Model.Package" Role="Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="TransportId" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="TransportTransportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sell">
+          <Key>
+            <PropertyRef Name="SellId" />
+          </Key>
+          <Property Name="SellId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Package" Relationship="Model.PackageSell" FromRole="Sell" ToRole="Package" />
+          <Property Name="PackagePackageId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Seller" Relationship="Model.SellerSell" FromRole="Sell" ToRole="Seller" />
+          <Property Name="SellerEmployeesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Buy" Relationship="Model.SellBuy" FromRole="Sell" ToRole="Buy" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PackageSell">
+          <End Type="Model.Package" Role="Package" Multiplicity="1" />
+          <End Type="Model.Sell" Role="Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageId" />
+            </Principal>
+            <Dependent Role="Sell">
+              <PropertyRef Name="PackagePackageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SellerSell">
+          <End Type="Model.Seller" Role="Seller" Multiplicity="1" />
+          <End Type="Model.Sell" Role="Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seller">
+              <PropertyRef Name="EmployeesId" />
+            </Principal>
+            <Dependent Role="Sell">
+              <PropertyRef Name="SellerEmployeesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="CustomerPhoneNumber" Type="String" Nullable="false" />
+          <Property Name="PurchasedAmount" Type="String" Nullable="false" />
+          <NavigationProperty Name="Buy" Relationship="Model.CustomerBuy" FromRole="Customer" ToRole="Buy" />
+        </EntityType>
+        <EntityType Name="Buy">
+          <Key>
+            <PropertyRef Name="BuyId" />
+          </Key>
+          <Property Name="BuyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackagePackageId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sell" Relationship="Model.SellBuy" FromRole="Buy" ToRole="Sell" />
+          <Property Name="SellSellId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Model.CustomerBuy" FromRole="Buy" ToRole="Customer" />
+          <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="SellBuy">
+          <End Type="Model.Sell" Role="Sell" Multiplicity="1" />
+          <End Type="Model.Buy" Role="Buy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sell">
+              <PropertyRef Name="SellId" />
+            </Principal>
+            <Dependent Role="Buy">
+              <PropertyRef Name="SellSellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerBuy">
+          <End Type="Model.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="Model.Buy" Role="Buy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Buy">
+              <PropertyRef Name="CustomerCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Taster">
+          <Key>
+            <PropertyRef Name="TasterId" />
+          </Key>
+          <Property Name="TasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tasting" Relationship="Model.TasterTasting" FromRole="Taster" ToRole="Tasting" />
+        </EntityType>
+        <EntityType Name="Tasting">
+          <Key>
+            <PropertyRef Name="TastingId" />
+          </Key>
+          <Property Name="TastingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Taster" Relationship="Model.TasterTasting" FromRole="Tasting" ToRole="Taster" />
+          <Property Name="TasterTasterId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WhiteVine" Relationship="Model.WhiteVineTasting" FromRole="Tasting" ToRole="WhiteVine" />
+          <Property Name="WhiteVineVineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TastingChampagne" Relationship="Model.TastingTastingChampagne" FromRole="Tasting" ToRole="TastingChampagne" />
+        </EntityType>
+        <Association Name="TasterTasting">
+          <End Type="Model.Taster" Role="Taster" Multiplicity="1" />
+          <End Type="Model.Tasting" Role="Tasting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taster">
+              <PropertyRef Name="TasterId" />
+            </Principal>
+            <Dependent Role="Tasting">
+              <PropertyRef Name="TasterTasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WhiteVineTasting">
+          <End Type="Model.WhiteVine" Role="WhiteVine" Multiplicity="1" />
+          <End Type="Model.Tasting" Role="Tasting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WhiteVine">
+              <PropertyRef Name="VineId" />
+            </Principal>
+            <Dependent Role="Tasting">
+              <PropertyRef Name="WhiteVineVineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Champagne">
+          <Key>
+            <PropertyRef Name="ChampagneId" />
+          </Key>
+          <Property Name="ChampagneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ProductionDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="TastingChampagne" Relationship="Model.ChampagneTastingChampagne" FromRole="Champagne" ToRole="TastingChampagne" />
+        </EntityType>
+        <EntityType Name="TastingChampagne">
+          <Key>
+            <PropertyRef Name="TastingChampagneId" />
+          </Key>
+          <Property Name="TastingChampagneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Champagne" Relationship="Model.ChampagneTastingChampagne" FromRole="TastingChampagne" ToRole="Champagne" />
+          <Property Name="ChampagneChampagneId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tasting" Relationship="Model.TastingTastingChampagne" FromRole="TastingChampagne" ToRole="Tasting" />
+          <Property Name="TastingTastingId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ChampagneTastingChampagne">
+          <End Type="Model.Champagne" Role="Champagne" Multiplicity="1" />
+          <End Type="Model.TastingChampagne" Role="TastingChampagne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Champagne">
+              <PropertyRef Name="ChampagneId" />
+            </Principal>
+            <Dependent Role="TastingChampagne">
+              <PropertyRef Name="ChampagneChampagneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TastingTastingChampagne">
+          <End Type="Model.Tasting" Role="Tasting" Multiplicity="1" />
+          <End Type="Model.TastingChampagne" Role="TastingChampagne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasting">
+              <PropertyRef Name="TastingId" />
+            </Principal>
+            <Dependent Role="TastingChampagne">
+              <PropertyRef Name="TastingTastingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Hierarchy">
+          <Key>
+            <PropertyRef Name="HierarchyId" />
+          </Key>
+          <Property Name="HierarchyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employees" Relationship="Model.EmployeesHierarchy" FromRole="Hierarchy" ToRole="Employees" />
+          <Property Name="EmployeesEmployeesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employees1" Relationship="Model.EmployeesHierarchy1" FromRole="Hierarchy" ToRole="Employees" />
+          <Property Name="EmployeesEmployeesId1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="EmployeesHierarchy">
+          <End Type="Model.Employees" Role="Employees" Multiplicity="1" />
+          <End Type="Model.Hierarchy" Role="Hierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeesId" />
+            </Principal>
+            <Dependent Role="Hierarchy">
+              <PropertyRef Name="EmployeesEmployeesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeesHierarchy1">
+          <End Type="Model.Employees" Role="Employees" Multiplicity="1" />
+          <End Type="Model.Hierarchy" Role="Hierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeesId" />
+            </Principal>
+            <Dependent Role="Hierarchy">
+              <PropertyRef Name="EmployeesEmployeesId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityWinnary">
+          <End Type="Model.City" Role="City" Multiplicity="1" />
+          <End Type="Model.Winnary" Role="Winnary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Winnary">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="WinnarySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Winnary)">
+        <MappingFragment StoreEntitySet="WinnarySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CitySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.City)">
+        <MappingFragment StoreEntitySet="CitySet">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VineSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Vine)">
+        <MappingFragment StoreEntitySet="VineSet">
+          <ScalarProperty Name="VineId" ColumnName="VineId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="WinnaryId" ColumnName="WinnaryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RedVine)">
+        <MappingFragment StoreEntitySet="VineSet_RedVine">
+          <ScalarProperty Name="VineId" ColumnName="VineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.WhiteVine)">
+        <MappingFragment StoreEntitySet="VineSet_WhiteVine">
+          <ScalarProperty Name="VineId" ColumnName="VineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeesSet1">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Employees)">
+        <MappingFragment StoreEntitySet="EmployeesSet1">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="WinnaryId" ColumnName="WinnaryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Packer)">
+        <MappingFragment StoreEntitySet="EmployeesSet1_Packer">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Seller)">
+        <MappingFragment StoreEntitySet="EmployeesSet1_Seller">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorehouseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Storehouse)">
+        <MappingFragment StoreEntitySet="StorehouseSet">
+          <ScalarProperty Name="StorehouseId" ColumnName="StorehouseId" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransportSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Transport)">
+        <MappingFragment StoreEntitySet="TransportSet">
+          <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+          <ScalarProperty Name="RedVineVineId" ColumnName="RedVineVineId" />
+          <ScalarProperty Name="StorehouseStorehouseId" ColumnName="StorehouseStorehouseId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Package)">
+        <MappingFragment StoreEntitySet="PackageSet">
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="PackerEmployeesId" ColumnName="PackerEmployeesId" />
+          <ScalarProperty Name="TransportTransportId" ColumnName="TransportTransportId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SellSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Sell)">
+        <MappingFragment StoreEntitySet="SellSet">
+          <ScalarProperty Name="SellId" ColumnName="SellId" />
+          <ScalarProperty Name="PackagePackageId" ColumnName="PackagePackageId" />
+          <ScalarProperty Name="SellerEmployeesId" ColumnName="SellerEmployeesId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Customer)">
+        <MappingFragment StoreEntitySet="CustomerSet">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="PurchasedAmount" ColumnName="PurchasedAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Buy)">
+        <MappingFragment StoreEntitySet="BuySet">
+          <ScalarProperty Name="BuyId" ColumnName="BuyId" />
+          <ScalarProperty Name="PackagePackageId" ColumnName="PackagePackageId" />
+          <ScalarProperty Name="SellSellId" ColumnName="SellSellId" />
+          <ScalarProperty Name="CustomerCustomerId" ColumnName="CustomerCustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasterSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Taster)">
+        <MappingFragment StoreEntitySet="TasterSet">
+          <ScalarProperty Name="TasterId" ColumnName="TasterId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TastingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Tasting)">
+        <MappingFragment StoreEntitySet="TastingSet">
+          <ScalarProperty Name="TastingId" ColumnName="TastingId" />
+          <ScalarProperty Name="TasterTasterId" ColumnName="TasterTasterId" />
+          <ScalarProperty Name="WhiteVineVineId" ColumnName="WhiteVineVineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChampagneSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Champagne)">
+        <MappingFragment StoreEntitySet="ChampagneSet">
+          <ScalarProperty Name="ChampagneId" ColumnName="ChampagneId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TastingChampagneSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TastingChampagne)">
+        <MappingFragment StoreEntitySet="TastingChampagneSet">
+          <ScalarProperty Name="TastingChampagneId" ColumnName="TastingChampagneId" />
+          <ScalarProperty Name="ChampagneChampagneId" ColumnName="ChampagneChampagneId" />
+          <ScalarProperty Name="TastingTastingId" ColumnName="TastingTastingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HierarchySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Hierarchy)">
+        <MappingFragment StoreEntitySet="HierarchySet">
+          <ScalarProperty Name="HierarchyId" ColumnName="HierarchyId" />
+          <ScalarProperty Name="EmployeesEmployeesId" ColumnName="EmployeesEmployeesId" />
+          <ScalarProperty Name="EmployeesEmployeesId1" ColumnName="EmployeesEmployeesId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

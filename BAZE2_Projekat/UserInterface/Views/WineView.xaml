@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="UserInterface.Views.WineView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserInterface.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="960">
+    <Grid x:Name="MyWinnaryGrid" Background="LemonChiffon">
+        <Label Content="Naziv" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="138,18,0,0" TextWrapping="Wrap" Text="{Binding WineName}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Datum pr." FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top"/>
+        <DatePicker SelectedDate="{Binding ChosenWineDate}" HorizontalAlignment="Left" Margin="138,51,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Vinarija" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableWinnaryList}" DisplayMemberPath="Name" SelectedItem="{Binding ChosenWinnary}" HorizontalAlignment="Left" Margin="138,84,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Vrsta" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableTypeList}" SelectedItem="{Binding ChosenType}" HorizontalAlignment="Left" Margin="138,118,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+        <Button Command="{Binding AddWineCommand}" Content="Dodaj" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,21,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding RemoveWineCommand}" Content="Obrisi" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,68,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+        <Button Command="{Binding EditWineCommand}" Content="Izmeni" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="558,48,0,0" VerticalAlignment="Top" Width="120" Height="35"/>
+
+        <DataGrid HorizontalAlignment="Left" Height="232" Margin="10,260,0,0" VerticalAlignment="Top" Width="940" AutoGenerateColumns="False" Name="dataGrid"
+          IsReadOnly="True" SelectionMode="Single"
+          ItemsSource="{Binding ObservableWineList}" 
+          SelectedItem="{Binding SelectedWine}"  AlternatingRowBackground="Goldenrod" AlternationCount="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding VineId}"/>
+                <DataGridTextColumn Header="Naziv" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Datum Proizvodnje" Width="*" Binding="{Binding ProductionDate}"/>
+                <DataGridTextColumn Header="Vinarija" Width="*" Binding="{Binding Winnary.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="820,18,0,0" TextWrapping="Wrap" Text="{Binding NewWineName}" VerticalAlignment="Top" Width="120"/>
+        <DatePicker SelectedDate="{Binding NewChosenWineDate}" HorizontalAlignment="Left" Margin="820,56,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Novi naziv" HorizontalAlignment="Left" Margin="695,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Novi datum" HorizontalAlignment="Left" Margin="695,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nova vinarija" HorizontalAlignment="Left" Margin="695,89,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding ObservableWinnaryList}" DisplayMemberPath="Name" SelectedItem="{Binding NewChosenWinnary}" HorizontalAlignment="Left" Margin="820,91,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button Command="{Binding ShowRedCommand}" Content="Crno" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="436,203,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command="{Binding ShowWhiteCommand}" Content="Bela" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="558,203,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Command="{Binding ShowAllCommand}" Content="Svi" FontSize="20" FontWeight="Bold" Background="DarkRed" Foreground="Goldenrod" HorizontalAlignment="Left" Margin="312,203,0,0" VerticalAlignment="Top" Width="100"/>
+
+    </Grid>
+</UserControl>
