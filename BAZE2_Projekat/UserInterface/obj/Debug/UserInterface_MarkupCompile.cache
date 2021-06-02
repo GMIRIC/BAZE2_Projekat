@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\VISUAL STUDIO\BAZE2_Projekat\UserInterface\obj\Debug\
+D:\VISUAL STUDIO\Baze\BAZE2_Projekat\UserInterface\obj\Debug\
 UserInterface
 none
 false
 DEBUG;TRACE
-D:\VISUAL STUDIO\BAZE2_Projekat\UserInterface\App.xaml
+D:\VISUAL STUDIO\Baze\BAZE2_Projekat\UserInterface\App.xaml
 13-1469901176
 
-33136712850
-17-535118510
+37-723131371
+17-1051884918
 MainWindow.xaml;Views\ChampagneView.xaml;Views\CityView.xaml;Views\CustomerView.xaml;Views\EmployeesView.xaml;Views\PackageView.xaml;Views\StorehouseView.xaml;Views\TasterView.xaml;Views\TastingChampagneView.xaml;Views\TastingView.xaml;Views\TransportView.xaml;Views\WineView.xaml;Views\WinnaryView.xaml;
 
-False
+True
 
